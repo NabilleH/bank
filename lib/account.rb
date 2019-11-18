@@ -12,6 +12,7 @@ class Account
 
   def print_statement
     statement = @statement.print(@history)
+    puts statement
     return statement
   end
 
