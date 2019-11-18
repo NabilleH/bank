@@ -20,4 +20,12 @@ describe Account do
     end
   end
 
+  describe "a withdrawal can be made" do
+    it "should update the balance with the amount withdrawn" do
+      nabille.credit(1000)
+      nabille.debit(1000)
+      expect(nabille.balance).to eq(0)
+    end
+  end
+
 end
