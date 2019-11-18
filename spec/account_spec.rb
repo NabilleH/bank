@@ -15,9 +15,9 @@ describe Account do
 
   describe "a deposit can be made" do
     it "should update the balance with the amount deposited" do
-      nabille.deposit(1000)
+      nabille.credit(1000)
       expect(nabille.balance).to eq(1000)
     end
   end
-  
+
 end
