@@ -18,11 +18,13 @@ class Account
   end
 
   def credit(amount)
+    return if amount <= 0
     @balance += amount
     update_history(type: 'credit', amount: amount)
   end
 
   def debit(amount)
+    return if amount <= 0
     @balance -= amount
     update_history(type: 'debit', amount: amount)
   end

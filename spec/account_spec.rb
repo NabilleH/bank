@@ -25,6 +25,12 @@ describe Account do
       expect(nabille.balance).to eq(1000)
     end
 
+    it 'should not update the balance with negative or zero deposits' do
+      nabille.credit(-1000)
+      nabille.credit(0)
+      expect(nabille.balance).to eq(0)
+    end
+
     it "should update the account history after a credit with the date, type, amount and balance" do
       allow(nabille).to receive(:time_stamp).and_return('01/01/2020')
       nabille.credit(1000)
@@ -36,6 +42,12 @@ describe Account do
     it 'should update the balance with the amount withdrawn' do
       nabille.credit(1000)
       nabille.debit(1000)
+      expect(nabille.balance).to eq(0)
+    end
+
+    it 'should not update the balance with negative or zero withdrawals' do
+      nabille.debit(-1000)
+      nabille.debit(0)
       expect(nabille.balance).to eq(0)
     end
 
