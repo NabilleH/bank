@@ -1,6 +1,7 @@
 require_relative 'statement'
 
 class Account
+
   attr_reader :name, :balance, :history
 
   def initialize(name, statement: nil)
@@ -13,7 +14,7 @@ class Account
   def print_statement
     statement = @statement.print(@history)
     puts statement
-    return statement
+    statement
   end
 
   def credit(amount)
@@ -38,10 +39,7 @@ class Account
 
   def calc_balance(amount, type)
     return amount if @history.empty?
-    if type == 'credit'
-      return @history.last[:balance] + amount
-    elsif type == 'debit'
-      return @history.last[:balance] - amount
-    end
+    return @history.last[:balance] + amount if type == 'credit'
+    return @history.last[:balance] - amount if type == 'debit'
   end
 end
