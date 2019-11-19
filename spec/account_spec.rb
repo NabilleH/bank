@@ -34,7 +34,7 @@ describe Account do
     it "should update the account history after a credit with the date, type, amount and balance" do
       allow(nabille).to receive(:time_stamp).and_return('01/01/2020')
       nabille.credit(1000)
-      expect(nabille.history.first).to eq(date: '01/01/2020', type: 'credit', amount: 1000, balance: 1000)
+      expect(nabille.history.first).to eq(date: '01/01/2020', type: 'credit', amount: "1000.00", balance: "1000.00")
     end
   end
 
@@ -55,7 +55,7 @@ describe Account do
       nabille.credit(1000)
       allow(nabille).to receive(:time_stamp).and_return('02/01/2020')
       nabille.debit(200)
-      expect(nabille.history.last).to eq(date: '02/01/2020', type: 'debit', amount: 200, balance: 800)
+      expect(nabille.history.last).to eq(date: '02/01/2020', type: 'debit', amount: "200.00", balance: "800.00")
     end
   end
 

@@ -32,7 +32,13 @@ class Account
   private
 
   def update_history(type:, amount:)
-    @history.push(date: time_stamp, type: type, amount: amount, balance: calc_balance(amount, type))
+    amount = format_amount(amount)
+    @history.push(date: time_stamp, type: type, amount: amount,
+      balance: format_amount(calc_balance(amount, type)))
+  end
+
+  def format_amount(amount)
+    '%.2f' % amount
   end
 
   def time_stamp
@@ -41,7 +47,7 @@ class Account
 
   def calc_balance(amount, type)
     return amount if @history.empty?
-    return @history.last[:balance] + amount if type == 'credit'
-    return @history.last[:balance] - amount if type == 'debit'
+    return @history.last[:balance].to_f + amount.to_f if type == 'credit'
+    return @history.last[:balance].to_f - amount.to_f if type == 'debit'
   end
 end
