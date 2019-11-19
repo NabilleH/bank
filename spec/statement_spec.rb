@@ -19,17 +19,17 @@ describe Statement do
   describe 'printing a statement' do
     it 'should print a statement with one credit entry' do
       statement = "date || credit || debit || balance\n01/01/2020 || 1000.00 || || 1000.00"
-      expect(subject.print(history_credit)).to eq(statement)
+      expect(subject.generate_statement(history_credit)).to eq(statement)
     end
 
     it 'should print a statement with one debit entry' do
       statement = "date || credit || debit || balance\n02/01/2020 || || 500.00 || 500.00"
-      expect(subject.print(history_debit)).to eq(statement)
+      expect(subject.generate_statement(history_debit)).to eq(statement)
     end
 
     it 'should print a statement with two entries with the newest entry first' do
       statement = "date || credit || debit || balance\n02/01/2020 || || 500.00 || 500.00\n01/01/2020 || 1000.00 || || 1000.00"
-      expect(subject.print(history_multi)).to eq(statement)
+      expect(subject.generate_statement(history_multi)).to eq(statement)
     end
   end
 end

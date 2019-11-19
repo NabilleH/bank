@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'statement'
+require_relative 'printer'
 # Class for bank account
 class Account
   attr_reader :name, :balance, :history
@@ -10,12 +11,12 @@ class Account
     @balance = 0
     @history = []
     @statement = statement || Statement.new
+    @printer = Printer.new
   end
 
   def print_statement
-    statement = @statement.print(@history)
-    puts statement
-    # statement
+    statement = @statement.generate_statement(@history)
+    @printer.print(statement)
   end
 
   def credit(amount)
