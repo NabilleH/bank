@@ -27,7 +27,7 @@ Run ```irb``` from the command line, require the dependant file and instantiate 
 2.6.3 :002 > account = Account.new("Test Account")
  => #<Account:0x00007ff130041bf8 @name="Test Account", @balance=0, @history=[], @statement=#<Statement:0x00007ff130041ba8>>
 ```
-Make a deposit to your account
+Make a deposit to your account. For both deposits and withdrawals an integer must be entered, else an error will be returned. Pennies may be entered but whole numbers (pounds) will also have pennies appended for display purposes.
 ```
 2.6.3 :003 > account.credit(1000.00)
  => [{:date=>"11/19/2019", :type=>"credit", :amount=>"1000.00", :balance=>"1000.00"}]
