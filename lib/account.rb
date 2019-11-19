@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require_relative 'statement'
-
+# Class for bank account
 class Account
-
   attr_reader :name, :balance, :history
 
   def initialize(name, statement: nil)
@@ -19,12 +20,14 @@ class Account
 
   def credit(amount)
     return if amount <= 0
+
     @balance += amount
     update_history(type: 'credit', amount: amount)
   end
 
   def debit(amount)
     return if amount <= 0
+
     @balance -= amount
     update_history(type: 'debit', amount: amount)
   end
@@ -34,7 +37,7 @@ class Account
   def update_history(type:, amount:)
     amount = format_amount(amount)
     @history.push(date: time_stamp, type: type, amount: amount,
-      balance: format_amount(calc_balance(amount, type)))
+                  balance: format_amount(calc_balance(amount, type)))
   end
 
   def format_amount(amount)

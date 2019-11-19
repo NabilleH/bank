@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 require './lib/statement'
 
 describe Statement do
   let(:history_credit) do
-    [{ date: '01/01/2020', type: 'credit', amount: "1000.00", balance: "1000.00" }]
+    [{ date: '01/01/2020', type: 'credit', amount: '1000.00', balance: '1000.00' }]
   end
 
   let(:history_debit) do
-    [{ date: '02/01/2020', type: 'debit', amount: "500.00", balance: "500.00" }]
+    [{ date: '02/01/2020', type: 'debit', amount: '500.00', balance: '500.00' }]
   end
 
   let(:history_multi) do
-    [{ date: '01/01/2020', type: 'credit', amount: "1000.00", balance: "1000.00" },
-      { date: '02/01/2020', type: 'debit', amount: "500.00", balance: "500.00" }]
+    [{ date: '01/01/2020', type: 'credit', amount: '1000.00', balance: '1000.00' },
+     { date: '02/01/2020', type: 'debit', amount: '500.00', balance: '500.00' }]
   end
 
   describe 'printing a statement' do

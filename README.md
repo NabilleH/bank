@@ -8,6 +8,8 @@ This small program allows you to create a bank account which facilitates deposit
 
 It was assumed that the user of this application would be a bank employee. It was therefore also assumed that the account may go into deficit if a debit transaction is performed, where there may be insufficient funds on the account.
 
+I approached the problem by separating my code in to two dependant classes, account and statement. The account class facilitates debits, credits and stores transaction history in memory. The account class instantiates a statement object on creation and passes a transaction history object to to the statement class in order to print out a statement. Further improvements could include extracting the transaction history into another class. This data could also be persisted into a file or database instead of memory, although the requirements of this challenge did not request this.
+
 ## Setup
 
  1. Clone this repo locally -
