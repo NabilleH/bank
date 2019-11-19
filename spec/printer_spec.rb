@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/printer'
 
 describe Printer do
@@ -5,8 +7,7 @@ describe Printer do
     "test statement\n"
   end
 
-  it "prints a statement to the screen" do
+  it 'prints a statement to the screen' do
     expect { subject.print(statement) }.to output(statement).to_stdout
   end
-
 end
