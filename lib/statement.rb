@@ -4,7 +4,7 @@
 class Statement
   HEADER = "date || credit || debit || balance\n"
 
-  def print(transactions)
+  def generate_statement(transactions)
     entries = []
     transactions.each do |trans|
       entries.unshift("#{trans[:date]} ||#{credit_amount(trans[:type],
