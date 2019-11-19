@@ -14,7 +14,7 @@ class Account
   def print_statement
     statement = @statement.print(@history)
     puts statement
-    statement
+    # statement
   end
 
   def credit(amount)

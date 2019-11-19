@@ -3,7 +3,7 @@ require './lib/account'
 describe Account do
   subject(:nabille) { described_class.new('nabille', statement: statement) }
   let(:statement) { double(:statement, print: printed_statement) }
-  let(:printed_statement) { 'test statement' }
+  let(:printed_statement) { "test statement\n" }
 
   describe 'a new bank account can be opened' do
     it 'should have a name' do
@@ -61,7 +61,8 @@ describe Account do
 
   describe 'printing a statement' do
     it "it prints a statement" do
-      expect(nabille.print_statement).to eq(printed_statement)
+      # expect(nabille.print_statement).to eq(printed_statement)
+      expect { subject.print_statement }.to output(printed_statement).to_stdout
     end
   end
 
